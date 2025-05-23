@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import SingleGamePage from "./pages/SingleGamePage";
 import ScorePage from "./pages/ScorePage";
 import Header from "./components/Header";
+import SettingsPage from "./pages/SettingsPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/game/:id" element={<SingleGamePage />} />
             <Route path="/score" element={<ScorePage />} />
+            <Route path="/settings" element={<SettingsPage />} />
           </Routes>
         </main>
       </div>

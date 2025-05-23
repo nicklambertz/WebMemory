@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { calculateScore } from "../utils/calculatePointscore";
+import { addScore } from "../utils/savePointscore";
+import GameEnd from "./GameEnd";
 
 function shuffle(array) {
   //Kartendeck wird zufällig gemischt
@@ -13,6 +16,7 @@ export default function MemoryGame({ cards }) {
   const [moves, setMoves] = useState(0);
   const [time, setTime] = useState(0);
   const [isActive, setIsActive] = useState(true);
+  const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
     //Kartendeck wird erstellt
@@ -28,6 +32,7 @@ export default function MemoryGame({ cards }) {
     setTime(0);
     setIsActive(true);
     setFlipped([]);
+    setGameOver(false);
   }, [cards]);
 
   useEffect(() => {
@@ -41,10 +46,16 @@ export default function MemoryGame({ cards }) {
     return () => clearInterval(timer);
   }, [isActive]);
 
-  //Timer stoppt, wenn alle Karten auf
   useEffect(() => {
+    //Effekt zum Spielende
     if (matched.length === cards.length) {
+      //Timer stoppt, wenn alle Karten aufgedeckt sind
       setIsActive(false);
+      setGameOver(true);
+
+      // Punkte für Memory-Abschluss berechnen und speichern
+      const { total } = calculateScore(moves, time);
+      addScore(total);
     }
   }, [matched, cards.length]);
 
@@ -102,20 +113,20 @@ export default function MemoryGame({ cards }) {
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
-        <p className="text-lg">Züge: {moves}</p>
-        <p className="text-lg">Zeit: {time}s</p>
+        <p className="text-xl">Züge: {moves}</p>
+        <p className="text-xl">Zeit: {time}s</p>
         <button
-          className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600"
+          className="text-xl bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600"
           onClick={resetGame}
         >
           Reset
         </button>
       </div>
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-screen-lg mx-auto px-2">
         {deck.map((card) => (
           <motion.div
             key={card.id}
-            className={`w-20 h-20 rounded-xl flex items-center justify-center cursor-pointer text-2xl shadow-md ${
+            className={`w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 text-5xl rounded-xl flex items-center justify-center cursor-pointer text-2xl shadow-md ${
               card.isFlipped || card.isMatched ? "bg-white" : "bg-blue-500"
             }`}
             onClick={() => handleClick(card)}
@@ -125,6 +136,9 @@ export default function MemoryGame({ cards }) {
           </motion.div>
         ))}
       </div>
+      {gameOver && (
+        <GameEnd moves={moves} time={time} onClose={() => setGameOver(false)} />
+      )}
     </div>
   );
 }
