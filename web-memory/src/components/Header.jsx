@@ -2,13 +2,20 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { getScore } from "../utils/savePointscore";
 
+const AVATAR_KEY = "memoryAvatar";
+
 export default function Header() {
   const [score, setScore] = useState(0);
+  const [avatar, setAvatar] = useState("⚙️"); //Fallback: Zahnrad
   const location = useLocation();
 
-  // Punktestand neu laden bei Seitenwechsel
+  //Punktestand und Avatar bei Seitenwechsel laden
   useEffect(() => {
     setScore(getScore());
+    const storedAvatar = localStorage.getItem(AVATAR_KEY);
+    if (storedAvatar) {
+      setAvatar(storedAvatar);
+    }
   }, [location]);
 
   return (
@@ -18,7 +25,7 @@ export default function Header() {
           to="/score"
           className="border border-blue-500 text-blue-600 px-3 py-1 rounded text-sm sm:text-2xl hover:bg-blue-50 transition min-w-[120px] text-center"
         >
-          {score}
+          ⭐ {score}
         </Link>
 
         <Link
@@ -32,7 +39,7 @@ export default function Header() {
           to="/settings"
           className="border border-blue-500 text-blue-600 px-3 py-1 rounded text-sm sm:text-2xl hover:bg-blue-50 transition min-w-[120px] text-center"
         >
-          ⚙️
+          {avatar}
         </Link>
       </div>
     </header>

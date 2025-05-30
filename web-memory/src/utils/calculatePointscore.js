@@ -5,6 +5,7 @@ export function calculateScore(moves, timeInSeconds) {
   const timeBonus = timeInSeconds < timeValue ? 50 : 0;
   const moveBonus = moves < moveValue ? 50 : 0;
   const total = base + timeBonus + moveBonus;
+  const levelSize = 500;
 
   return {
     base,
@@ -13,5 +14,6 @@ export function calculateScore(moves, timeInSeconds) {
     timeBonus,
     moveBonus,
     total,
+    levelSize,
   };
 }

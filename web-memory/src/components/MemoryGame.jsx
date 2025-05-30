@@ -139,6 +139,22 @@ export default function MemoryGame({ cards }) {
       {gameOver && (
         <GameEnd moves={moves} time={time} onClose={() => setGameOver(false)} />
       )}
+
+      {/* Dev-Button zum manuellen Beenden */}
+      <div className="flex justify-center mt-4">
+        <button
+          className="bg-yellow-400 text-black px-4 py-2 rounded hover:bg-yellow-500 transition"
+          onClick={() => {
+            const { total } = calculateScore(10, 30);
+            addScore(total);
+            setMoves(10);
+            setTime(30);
+            setGameOver(true);
+          }}
+        >
+          🚧 Spiel beenden (Dev)
+        </button>
+      </div>
     </div>
   );
 }

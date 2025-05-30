@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { calculateScore } from "../utils/calculatePointscore";
 import { getRandomSetKey } from "../utils/randomSet";
+import ScoreProgressBar from "./ScoreProgressBar";
 
 export default function GameEnd({ moves, time, onClose }) {
   const { base, timeValue, moveValue, timeBonus, moveBonus, total } =
@@ -55,6 +56,10 @@ export default function GameEnd({ moves, time, onClose }) {
               {total} Punkte
             </span>
           </p>
+        </div>
+
+        <div className="flex flex-col items-center justify-center">
+          <ScoreProgressBar />
         </div>
 
         <div className="flex justify-between pt-6">
