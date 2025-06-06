@@ -6,6 +6,8 @@ import ScorePage from "./pages/ScorePage";
 import Header from "./components/Header";
 import SettingsPage from "./pages/SettingsPage";
 
+import "./App.css";
+
 function App() {
   return (
     <Router>

@@ -12,7 +12,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-blue-100 to-blue-200 p-4 space-y-8">
+    <div className="min-h-screen flex flex-col items-center p-4 space-y-8">
       <h1 className="text-3xl md:text-4xl font-bold text-center">
         Willkommen zum Memory-Spiel!
       </h1>

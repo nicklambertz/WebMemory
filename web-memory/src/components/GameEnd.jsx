@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { calculateScore } from "../utils/calculatePointscore";
 import { getRandomSetKey } from "../utils/randomSet";
@@ -20,6 +20,20 @@ export default function GameEnd({ moves, time, onClose }) {
   const handleHome = () => {
     navigate("/");
   };
+
+  useEffect(() => {
+    const soundSetting = localStorage.getItem("memorySound");
+    const soundEnabled = soundSetting === null || soundSetting === "true";
+
+    if (soundEnabled) {
+      const audio = new Audio("/sounds/success.mp3");
+      audio
+        .play()
+        .catch((e) =>
+          console.error("Sound konnte nicht abgespielt werden:", e)
+        );
+    }
+  }, []);
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 px-4">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getScore, resetScore } from "../utils/savePointscore";
-import { calculateScore } from "../utils/calculatePointscore";
 import ScoreProgressBar from "../components/ScoreProgressBar";
+import BackButton from "../components/BackButton";
 
 export default function ScorePage() {
   const [score, setScore] = useState(0);
@@ -16,20 +16,27 @@ export default function ScorePage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center gap-10 px-4 py-10 bg-gradient-to-b from-white to-blue-100">
-      <div className="bg-green-500 text-white px-8 py-6 rounded-xl text-center shadow-md">
-        <p className="text-xl font-medium">Deine Punkte</p>
-        <p className="text-5xl font-bold mt-2">{score}</p>
+    <div className="min-h-screen flex flex-col items-center justify-start gap-10 px-4 py-10">
+      <BackButton />
+      <div className="w-full max-w-md flex flex-col gap-6">
+        <div className="bg-white rounded-xl shadow p-6">
+          <div className="bg-green-500 text-white px-8 py-6 rounded-xl text-center shadow-md">
+            <p className="text-xl font-medium">Deine Punkte</p>
+            <p className="text-5xl font-bold mt-2">{score}</p>
+          </div>
+
+          <ScoreProgressBar />
+        </div>
+
+        <div className="bg-white p-6 rounded-xl shadow flex justify-center ">
+          <button
+            onClick={handleReset}
+            className="text-xl bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-6 rounded shadow"
+          >
+            Punktestand zurücksetzen
+          </button>
+        </div>
       </div>
-
-      <ScoreProgressBar />
-
-      <button
-        onClick={handleReset}
-        className="text-xl mt-10 bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-6 rounded shadow"
-      >
-        Punktestand zurücksetzen
-      </button>
     </div>
   );
 }
