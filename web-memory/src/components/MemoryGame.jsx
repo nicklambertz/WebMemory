@@ -113,16 +113,16 @@ export default function MemoryGame({ cards }) {
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
-        <p className="text-xl">Züge: {moves}</p>
-        <p className="text-xl">Zeit: {time}s</p>
+        <p className="text-2xl">Züge: {moves}</p>
+        <p className="text-2xl">Zeit: {time}s</p>
         <button
-          className="text-xl bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600"
+          className="text-2xl bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600"
           onClick={resetGame}
         >
           Reset
         </button>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-screen-lg mx-auto px-2">
+      <div className="grid grid-cols-4 gap-10 w-fit mx-auto">
         {deck.map((card) => (
           <motion.div
             key={card.id}

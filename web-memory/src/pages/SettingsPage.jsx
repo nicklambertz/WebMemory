@@ -34,12 +34,12 @@ export default function SettingsPage() {
     <div className="min-h-screen flex flex-col items-center justify-start p-6 space-y-8">
       <BackButton />
 
-      <h1 className="text-3xl font-bold text-gray-800 mt-2">
+      <h1 className="text-4xl font-bold text-gray-800 mt-2">
         ⚙️ Einstellungen
       </h1>
 
       <div className="w-full max-w-md bg-white rounded-xl shadow p-6 space-y-4">
-        <h2 className="text-xl font-semibold text-gray-700">Avatar wählen</h2>
+        <h2 className="text-3xl font-semibold text-gray-700">Avatar wählen</h2>
         <div className="flex justify-between items-center space-x-4">
           {avatars.map((avatar) => (
             <button
@@ -58,9 +58,9 @@ export default function SettingsPage() {
       </div>
 
       <div className="w-full max-w-md bg-white rounded-xl shadow p-6 space-y-4">
-        <h2 className="text-xl font-semibold text-gray-700">Sound</h2>
+        <h2 className="text-3xl font-semibold text-gray-700">Sound</h2>
         <div className="flex items-center justify-between">
-          <span className="text-lg text-gray-600">
+          <span className="text-2xl text-gray-600">
             Sound {soundEnabled ? "aktiviert" : "deaktiviert"}
           </span>
           <label className="relative inline-flex items-center cursor-pointer">

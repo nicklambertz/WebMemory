@@ -25,7 +25,7 @@ export default function ScoreProgressBar() {
 
   return (
     <div className="w-full max-w-md relative mt-4">
-      <p className="text-2xl text-center text-gray-600 mb-2">
+      <p className="text-3xl font-bold text-center text-gray-600 mb-2">
         ⭐ Level {level} ⭐
       </p>
       <div className="relative w-full bg-gray-300 rounded-full h-6 overflow-hidden">
@@ -34,7 +34,7 @@ export default function ScoreProgressBar() {
           style={{ width: `${progressPercent}%` }}
         />
       </div>
-      <p className="text-lg text-center text-sm text-gray-500 mt-1">
+      <p className="text-lg text-center text-gray-500 mt-1">
         {progressInLevel} / {levelSize} Punkte im Level {level}
       </p>
     </div>

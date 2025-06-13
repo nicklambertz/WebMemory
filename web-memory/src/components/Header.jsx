@@ -23,7 +23,7 @@ export default function Header() {
       <div className="max-w-screen-xl mx-auto flex items-center justify-between">
         <Link
           to="/score"
-          className="border border-blue-500 text-blue-600 px-3 py-1 rounded text-sm sm:text-2xl hover:bg-blue-50 transition min-w-[120px] text-center"
+          className="border border-blue-500 text-blue-600 px-3 py-1 rounded text-sm sm:text-3xl hover:bg-blue-50 transition min-w-[120px] text-center"
         >
           ⭐ {score}
         </Link>
@@ -37,7 +37,7 @@ export default function Header() {
 
         <Link
           to="/settings"
-          className="border border-blue-500 text-blue-600 px-3 py-1 rounded text-sm sm:text-2xl hover:bg-blue-50 transition min-w-[120px] text-center"
+          className="border border-blue-500 text-blue-600 px-3 py-1 rounded text-sm sm:text-3xl hover:bg-blue-50 transition min-w-[120px] text-center"
         >
           {avatar}
         </Link>
