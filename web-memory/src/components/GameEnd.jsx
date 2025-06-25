@@ -38,23 +38,23 @@ export default function GameEnd({ moves, time, onClose }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 px-4">
       <div className="bg-white rounded-xl shadow-2xl p-6 sm:p-8 w-full max-w-md sm:max-w-lg lg:max-w-xl space-y-6">
-        <h2 className="text-3xl font-bold text-center text-green-600">
+        <h2 className="text-4xl font-bold text-center text-green-600">
           🎉 Spiel abgeschlossen!
         </h2>
 
         <div className="space-y-2 text-lg text-gray-800">
-          <div className="flex justify-between items-center border-b pb-2">
+          <div className="text-xl flex justify-between items-center border-b pb-2">
             <span>✅ 🏆 Spiel beendet</span>
             <span className="font-semibold text-green-600">+{base}</span>
           </div>
-          <div className="flex justify-between items-center border-b pb-2">
+          <div className="text-xl flex justify-between items-center border-b pb-2">
             <span>
               {timeValueMet ? "✅" : "❌"} ⏱️ <strong>Zeitbonus</strong> (unter{" "}
               {timeValue} Sekunden)
             </span>
             <span className="font-semibold text-blue-600">+{timeBonus}</span>
           </div>
-          <div className="flex justify-between items-center border-b pb-2">
+          <div className="text-xl flex justify-between items-center border-b pb-2">
             <span>
               {moveValueMet ? "✅" : "❌"} 🧠 <strong>Zugbonus</strong> (unter{" "}
               {moveValue} Züge)
@@ -65,7 +65,7 @@ export default function GameEnd({ moves, time, onClose }) {
 
         <div className="text-center mt-6">
           <p className="text-xl font-bold text-gray-900">
-            Gesamtpunktzahl:{" "}
+            Gesamt:{" "}
             <span className="text-3xl text-orange-500 font-extrabold">
               {total} Punkte
             </span>
