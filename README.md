@@ -25,7 +25,7 @@ Die Memory-Sets befinden sich in einer JavaScript-Datei und sind einfach erweite
 
 1. Repository klonen
 
-   - `git clone https://github.com/dein-benutzername/memory-game.git`
+   - `git clone https://github.com/nicklambertz/WebMemory.git)`
    - `cd web-memory`
 
 2. Abhängigkeiten installieren
